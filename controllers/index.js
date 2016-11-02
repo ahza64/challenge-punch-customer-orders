@@ -1,1 +1,1 @@
-module.exports.customers = require('./customerController');
+module.exports.customers = require('./customersController');
