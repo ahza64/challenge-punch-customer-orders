@@ -14,4 +14,13 @@ function CustomerIndexController (  $http  ) {
     {name: "susan"},
     {name: "john"}
   ];
+
+  $http({
+    method: 'GET',
+    url: '/customers'
+  }).then(function successCallback(res) {
+    vm.newCustomer = res.data;
+  }, function errorCallback(res) {
+    console.log("response err from db", res);
+  });
 }

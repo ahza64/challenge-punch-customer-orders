@@ -1,6 +1,6 @@
 
 function index (req, res) {
-  res.json({greet: 'hi'});
+  res.json({name: 'david'});
 }
 
 module.exports = {

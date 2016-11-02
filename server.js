@@ -11,8 +11,6 @@ app.use('/vendor', express.static(__dirname + '/bower_components'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use('/vendor', express.static(__dirname + '/bower_components'));
-
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
