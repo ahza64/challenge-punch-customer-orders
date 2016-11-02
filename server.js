@@ -2,6 +2,7 @@
 var express = require('express'),
     app = express();
 var bodyParser = require('body-parser');
+var controllers = require('./controllers');
 
 
 app.use(express.static(__dirname + '/public'));
@@ -13,6 +14,8 @@ app.use(bodyParser.json());
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
+
+app.get('/customers', controllers.customers.index);
 
 app.get('*', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
