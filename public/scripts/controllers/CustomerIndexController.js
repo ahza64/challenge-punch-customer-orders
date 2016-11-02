@@ -19,7 +19,7 @@ function CustomerIndexController (  $http  ) {
     method: 'GET',
     url: '/customers'
   }).then(function successCallback(res) {
-    vm.newCustomer = res.data;
+    vm.newCustomer = res.data[0];
   }, function errorCallback(res) {
     console.log("response err from db", res);
   });
