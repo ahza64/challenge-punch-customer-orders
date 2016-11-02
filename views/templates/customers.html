@@ -1,0 +1,9 @@
+<div class="container" ng-controller="CustomerIndexController as customerIndexCtrl">
+  <input type="text" class="form-control" placeholder="New customer name" ng-model="customerIndexCtrl.newCustomer.name">
+  <p>
+    customerIndexCtrl.newCustomer: {{customerIndexCtrl.newCustomer.name}}
+  </p>
+  <div ng-repeat="customer in customerIndexCtrl.customers">
+    {{customer.name}}
+  </div>
+</div>

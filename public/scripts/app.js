@@ -1,17 +1,19 @@
+
 angular
-  .module('punch', [])
-  .controller('CustomerIndexController', CustomerIndexController);
+  .module('punch', ['ngRoute'])
+  .config(config);
 
-  CustomerIndexController.$inject = ['$http'];
-  function CustomerIndexController (  $http  ) {
-    var vm = this;
+config.$inject = ['$routeProvider', '$locationProvider'];
+function config (  $routeProvider,   $locationProvider  ) {
+  $routeProvider
+    .when('/', {
+      templateUrl: '/templates/customers',
+      controllerAs: 'customerIndexCtrl',
+      controller: 'CustomerIndexController'
+    });
 
-    vm.newCustomer = {
-      name: "Bob"
-    };
-
-    vm.customers = [
-      {name: "susan"},
-      {name: "john"}
-    ];
-  }
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
+    });
+}
