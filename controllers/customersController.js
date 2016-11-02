@@ -6,7 +6,6 @@ function index (req, res) {
     console.log(allCustomers);
     res.json(allCustomers);
   });
-  // res.json({name: 'david'});
 }
 
 module.exports = {

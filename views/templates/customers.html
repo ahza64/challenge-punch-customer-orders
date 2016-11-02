@@ -7,3 +7,29 @@
     {{customer.name}}
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <form class="form-horizontal" ng-submit="customerIndexCtrl.createCustomer()">
+        <fieldset>
+          <legend>Add a New Customer</legend>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label">Customer Name</label>
+            <div class="col-md-4">
+              <input ng-model="customerIndexCtrl.newCustomer.name" class="form-control input-md" type="text" name="name" value="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-4">
+              <button class="btn btn-primary">Save Customer</button>
+            </div>
+          </div>
+          
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
