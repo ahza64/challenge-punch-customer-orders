@@ -8,6 +8,15 @@ function index (req, res) {
   });
 }
 
+function create (req, res) {
+  db.Customer.create(req.body, function (err, customer) {
+    if (err) {console.log("error posting customer", err);}
+    console.log(customer);
+    res.json(customer);
+  })
+}
+
 module.exports = {
-  index: index
+  index: index,
+  create: create
 };

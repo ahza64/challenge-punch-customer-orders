@@ -3,9 +3,6 @@
   <p>
     customerIndexCtrl.newCustomer: {{customerIndexCtrl.newCustomer.name}}
   </p>
-  <div ng-repeat="customer in customerIndexCtrl.customers">
-    {{customer.name}}
-  </div>
 </div>
 
 <div class="container">
@@ -27,9 +24,13 @@
               <button class="btn btn-primary">Save Customer</button>
             </div>
           </div>
-          
         </fieldset>
       </form>
+
     </div>
+  </div>
+
+  <div ng-repeat="customer in customerIndexCtrl.customers" class="row">
+    {{customer.name}}
   </div>
 </div>

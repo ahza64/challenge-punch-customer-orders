@@ -28,6 +28,7 @@ app.get('/templates/:name', function templates (req, res) {
 //*************//
 // JSON routes //
 app.get('/customers', controllers.customers.index);
+app.post('/customers', controllers.customers.create);
 
 
 // default page for templates
