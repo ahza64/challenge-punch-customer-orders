@@ -15,11 +15,18 @@
                       {{customersShowCtrl.customer.name}}
                     </li>
 
-                    <li class="list-group form-inline">
+                    <li class="list-group-item">
                       <h4 class="inine-header">Orders:</h4>
                       <div class="list-group-item" ng-repeat="order in customersShowCtrl.customer.orders">
-                        {{order.name}}
+                        <button class="btn btn-info" ng-hide="editing" ng-click="editing = true" type="button">edit order</button>
+                        <button class="btn btn-success" ng-show="editing" ng-click="customersShowCtrl.editOrder(order); editing = false" type="button">update order</button>
+                        <button class="btn btn-danger" ng-hide="editing" ng-click="customersShowCtrl.deleteOrder(order)" type="button">delete order</button>
+                        <span ng-hide="editing">{{order.name}}</span>
+                        <input ng-show="editing" ng-model="order.name" type="text" class="form-control input-md">
                       </div>
+                      <hr>
+                      <input ng-model="customersShowCtrl.newOrder.name" placeholder="Order Name" type="text" class="form-control input-md">
+                      <button class="btn btn-success" type="button" ng-click="customersShowCtrl.createOrder()">New Order</button>
                     </li>
                   </ul>
                 </div>
