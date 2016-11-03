@@ -27,8 +27,24 @@ function destroy (req, res) {
   })
 }
 
+function update (req, res) {
+  db.Customer.findById(req.params.custId, function (err, foundCustomer) {
+    var correctOrder = foundCustomer.orders.id(req.params.orderId);
+    if (correctOrder) {
+      correctOrder.name = req.body.name;
+      foundCustomer.save(function (err, saved) {
+        console.log("updated order ", correctOrder, "to the customer");
+        res.json(correctOrder);
+      });
+    } else {
+      res.send(404);
+    }
+  })
+}
+
 
 module.exports = {
   create: create,
-  destroy: destroy
+  destroy: destroy,
+  update: update
 }

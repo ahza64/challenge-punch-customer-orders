@@ -35,6 +35,7 @@ app.delete('/customers/:custId', controllers.customers.destroy);
 
 app.post('/customers/:custId/orders', controllers.customersOrders.create);
 app.delete('/customers/:custId/orders/:orderId', controllers.customersOrders.destroy);
+app.put('/customers/:custId/orders/:orderId', controllers.customersOrders.update);
 
 // default page for templates
 app.get('*', function homepage (req, res) {

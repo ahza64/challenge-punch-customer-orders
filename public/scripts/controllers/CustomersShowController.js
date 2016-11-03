@@ -43,5 +43,16 @@ vm.deleteOrder = function (order) {
   });
 }
 
+vm.editOrder = function (order) {
+  $http({
+    method: 'PUT',
+    url: '/customers/' + $routeParams.id + '/orders/' + order._id,
+    data: order
+  }).then(function successCallback (json) {
+
+  }, function errorCallback (res) {
+    console.log("error editing order", res);
+  });
+}
 
 }
