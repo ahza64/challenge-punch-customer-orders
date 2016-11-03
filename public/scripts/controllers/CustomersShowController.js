@@ -12,8 +12,14 @@ function CustomersShowController (  $http,   $routeParams  ) {
     method: 'GET',
     url: '/customers/' + $routeParams.id
   }).then(function successCallback (json) {
-    console.log(json.data);
     vm.customer = json.data;
+    vm.customer = {
+      name: "sample",
+      orders: [
+        {name: "beans"},
+        {name: "juice"}
+      ]
+    }
   }, function errorCallback (res) {
     console.log('error retrieving customer data', res);
   });

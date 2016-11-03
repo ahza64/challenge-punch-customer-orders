@@ -2,8 +2,33 @@
 <div class="container">
   <div class="row">
     <div class="col-10 col-md-offset-1">
-      {{customersShowCtrl.customer.name}}
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row">
 
+                <div class="col-md-9 col-xs-12">
+                  <ul class="list-group form-inline">
+                    <li class="list-group-item">
+                      <h4 class="inline-header">Customer Name</h4>
+                      {{customersShowCtrl.customer.name}}
+                    </li>
+
+                    <li class="list-group form-inline">
+                      <h4 class="inine-header">Orders:</h4>
+                      <div class="list-group-item" ng-repeat="order in customersShowCtrl.customer.orders">
+                        {{order.name}}
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
