@@ -31,6 +31,18 @@ vm.createCustomer = function () {
   });
 };
 
+vm.editCustomer = function (customer) {
+  $http({
+    method: 'PUT',
+    url: '/customers/' + customer._id,
+    data: customer
+  }).then(function successCallback (json) {
+
+  }, function errorCallback (res) {
+    console.log("edit error", res);
+  })
+}
+
 vm.deleteCustomer = function (customer) {
   $http({
     method: 'DELETE',

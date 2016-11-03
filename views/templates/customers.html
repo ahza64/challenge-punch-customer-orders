@@ -36,11 +36,17 @@
         <div class="panel-body">
 
           <div class="row">
-            {{customer.name}}
+            <div class="col-md-9 col-xs-12">
+              <h4>Customer Name</h4>
+              <span ng-hide="editing">{{customer.name}}</span>
+              <input ng-show="editing" ng-model="customer.name" type="text" class="form-control input-md">
+            </div>
           </div>
 
           <div class="panel-footer">
             <button class="btn btn-danger" ng-click="customerIndexCtrl.deleteCustomer(customer)">Remove Customer</button>
+            <button class="btn btn-info" ng-hide="editing" ng-click="editing = true">Edit Cutomer</button>
+            <button class="btn btn-success" ng-show="editing" ng-click="customerIndexCtrl.editCustomer(customer); editing = false">Save Changes</button>
           </div>
         </div>
       </div>

@@ -16,8 +16,19 @@ function create (req, res) {
   })
 }
 
+function update (req, res) {
+  console.log("updating with", req.body);
+  db.Customer.findById(req.params.custId, function (err, foundCustomer) {
+    foundCustomer.name = req.body.name;
+    foundCustomer.save(function(err, savedCustomer) {
+      if (err) { console.log("save error", err); }
+      res.json(savedCustomer);
+    })
+  })
+}
+
 function destroy (req, res) {
-  db.Customer.findOneAndRemove({ _id: req.params.custid}, function (err, foundCustomer) {
+  db.Customer.findOneAndRemove({ _id: req.params.custId}, function (err, foundCustomer) {
     res.json(foundCustomer);
   })
 }
@@ -25,5 +36,6 @@ function destroy (req, res) {
 module.exports = {
   index: index,
   create: create,
+  update: update,
   destroy: destroy
 };
