@@ -8,8 +8,18 @@ function config (  $routeProvider,   $locationProvider  ) {
   $routeProvider
     .when('/', {
       templateUrl: '/templates/customers',
-      controllerAs: 'customerIndexCtrl',
-      controller: 'CustomerIndexController'
+      controllerAs: 'customersIndexCtrl',
+      controller: 'CustomersIndexController'
+    })
+    .when('/customers', {
+      templateUrl: '/templates/customers',
+      controllerAs: 'customersIndexCtrl',
+      controller: 'CustomersIndexController'
+    })
+    .when('/customers/:id', {
+      templateUrl: '/templates/customersShow',
+      controllerAs: 'customersShowCtrl',
+      controller: 'CustomersShowController'
     });
 
     $locationProvider.html5Mode({

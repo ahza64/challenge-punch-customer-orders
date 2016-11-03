@@ -1,9 +1,10 @@
+
 angular
   .module('punch')
-  .controller('CustomerIndexController', CustomerIndexController);
+  .controller('CustomersIndexController', CustomersIndexController);
 
-CustomerIndexController.$inject = ['$http'];
-function CustomerIndexController (  $http  ) {
+CustomersIndexController.$inject = ['$http'];
+function CustomersIndexController (  $http  ) {
   var vm = this;
   var customers = [];
   vm.newCustomer = {

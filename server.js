@@ -28,6 +28,7 @@ app.get('/templates/:name', function templates (req, res) {
 //*************//
 // JSON routes //
 app.get('/customers', controllers.customers.index);
+app.get('/customers/:custId', controllers.customers.show);
 app.post('/customers', controllers.customers.create);
 app.put('/customers/:custId', controllers.customers.update);
 app.delete('/customers/:custId', controllers.customers.destroy);

@@ -3,9 +3,15 @@ var db = require('../models');
 
 function index (req, res) {
   db.Customer.find({}, function (err, allCustomers) {
-    console.log(allCustomers);
     res.json(allCustomers);
   });
+}
+
+function show (req, res) {
+  db.Customer.findById(req.params.custId, function (err, foundCustomer) {
+    if (err) { console.log("error show customer", err); }
+    res.json(foundCustomer);
+  })
 }
 
 function create (req, res) {
@@ -35,6 +41,7 @@ function destroy (req, res) {
 
 module.exports = {
   index: index,
+  show: show,
   create: create,
   update: update,
   destroy: destroy
