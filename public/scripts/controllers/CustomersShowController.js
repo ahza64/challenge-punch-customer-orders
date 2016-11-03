@@ -31,5 +31,17 @@ vm.createOrder = function () {
   });
 }
 
+vm.deleteOrder = function (order) {
+  $http({
+    method: 'DELETE',
+    url: '/customers/' + $routeParams.id + '/orders/' + order._id
+  }).then(function successCallback (json) {
+    var index = vm.customer.orders.indexOf(order);
+    vm.customer.orders.splice(index, 1);
+  }, function errorCallback (res) {
+    console.log("order delete error", res);
+  });
+}
+
 
 }

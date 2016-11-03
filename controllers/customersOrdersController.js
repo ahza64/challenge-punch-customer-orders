@@ -11,7 +11,24 @@ function create (req, res) {
   });
 }
 
+function destroy (req, res) {
+  db.Customer.findById(req.params.custId, function (err, foundCustomer) {
+    var correctOrder = foundCustomer.orders.id(req.params.orderId);
+    if (correctOrder) {
+      correctOrder.remove();
+      // have to resave customer, not that order is gone
+      foundCustomer.save(function (err, saved) {
+        console.log("delete order", correctOrder.name, "and saved updated customer");
+        res.json(correctOrder);
+      });
+    } else {
+      res.send(404);
+    }
+  })
+}
+
 
 module.exports = {
-  create: create
+  create: create,
+  destroy: destroy
 }
