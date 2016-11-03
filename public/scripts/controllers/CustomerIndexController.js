@@ -31,5 +31,17 @@ vm.createCustomer = function () {
   });
 };
 
+vm.deleteCustomer = function (customer) {
+  $http({
+    method: 'DELETE',
+    url: '/customers/' + customer._id
+  }).then(function successCallback (json) {
+    var index = vm.customers.indexOf(customer);
+    vm.customers.splice(index, 1);
+  }, function errorCallback (res) {
+    console.log("error deleting", res);
+  });
+};
+
 
 }

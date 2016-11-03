@@ -16,7 +16,14 @@ function create (req, res) {
   })
 }
 
+function destroy (req, res) {
+  db.Customer.findOneAndRemove({ _id: req.params.custid}, function (err, foundCustomer) {
+    res.json(foundCustomer);
+  })
+}
+
 module.exports = {
   index: index,
-  create: create
+  create: create,
+  destroy: destroy
 };
