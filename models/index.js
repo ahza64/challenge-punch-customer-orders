@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/punch');
 
-var Customer = require('./customer');
-
-module.exports.Customer = Customer;
+module.exports.Customer = require('./customer');
+module.exports.Order = require('./order');
